@@ -1,10 +1,11 @@
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import { NextFont } from "@next/font";
 
 // If loading a variable font, you don't need to specify the font weight
-const inter = Inter({ subsets: ["latin"] });
+const inter: NextFont = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home(): JSX.Element {
 	return (
 		<>
 			<article
@@ -236,8 +237,14 @@ export default function Home() {
 					</p>
 					<p>
 						Here’s the{" "}
-						<Link href={""}>Open Source Code Repository</Link> for
-						the project I made with TypeScript, Tailwind, and
+						<Link
+							href={
+								"https://github.com/jaxonhill/physics1-final-project"
+							}
+						>
+							Open Source Code Repository
+						</Link>{" "}
+						for the project I made with TypeScript, Tailwind, and
 						Next.js.
 					</p>
 				</main>
