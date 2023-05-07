@@ -2,12 +2,12 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import { NextFont } from "next/dist/compiled/@next/font";
 import { useState } from "react";
-import Image from "next/image";
+import Head from "next/head";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter: NextFont = Inter({ subsets: ["latin"] });
 
-function toRadians(angle: number) {
+function toRadians(angle: number): number {
 	return angle * (Math.PI / 180);
 }
 
@@ -33,6 +33,9 @@ export default function Home(): JSX.Element {
 
 	return (
 		<>
+			<Head>
+				<title>2D Kinematics by Jaxon Hill</title>
+			</Head>
 			<article
 				className={`mx-auto w-full max-w-3xl my-16 ${inter.className}`}
 			>
@@ -407,6 +410,7 @@ export default function Home(): JSX.Element {
 						baseball exactly horizontal at the same time that we
 						dropped a baseball from our hand?
 					</p>
+					<p>[ADD QUESTION ANSWERING HERE]</p>
 					<h2>Final Example Problem</h2>
 					<h3>Key Information To Remember</h3>
 					<ul>
@@ -436,6 +440,8 @@ export default function Home(): JSX.Element {
 							find.
 						</li>
 					</ul>
+					<h3>The Problem</h3>
+					<p></p>
 					<h2>Conclusion</h2>
 					<p>
 						In this interactive paper/article I discussed what
