@@ -3,6 +3,7 @@ import Link from "next/link";
 import { NextFont } from "next/dist/compiled/@next/font";
 import { useState } from "react";
 import Head from "next/head";
+import Image from "next/image";
 import StepBlock from "@/components/StepBlock";
 
 // If loading a variable font, you don't need to specify the font weight
@@ -71,12 +72,15 @@ const stepsToSolve: JSX.Element[] = [
 		<div>
 			It's important to remember what we stated earlier about breaking the
 			velocity vector into it's components. We need the v<sub>0y</sub>{" "}
-			component. We can retrieve this through utilizing the trigonometric
-			ratios to find that our v<sub>0y</sub> is 20 * sin(30&deg;). We also
-			know that our y<sub>0</sub> is 100 meters in the air. Our
+			component.{" "}
+			<strong>
+				We can retrieve this through utilizing the trigonometric ratios
+				to find that our v<sub>0y</sub> is 20 * sin(30&deg;).
+			</strong>{" "}
+			We also know that our y<sub>0</sub> is 100 meters in the air. Our
 			acceleration in the y direction is only created through
-			gravitational force, so our a<sub>y</sub> is just -g -- as we are
-			accelerating downwards.
+			gravitational force, so our a<sub>y</sub> is just -g (as we are
+			accelerating downwards due to gravity).
 		</div>
 		<div className="flex justify-center items-center text-xl">
 			0 = 100 + 20*sin(30&deg;)t - (1/2)(9.8)t<sup>2</sup>
@@ -193,21 +197,21 @@ export default function Home(): JSX.Element {
 				<main className="prose lg:prose-lg prose-h2:mb-6 prose-h3:mb-4">
 					<h2>Introduction</h2>
 					<p>
-						Two dimensional kinematics is an integral part of
-						Physics that describes the motion of an object in,
+						Two dimensional kinematics is a key concept in Physics
+						that describes the motion of an object in,
 						unsurprisingly, two dimensions. Through understanding 2D
 						Kinematics as physicists, we can better understand how
 						objects will move in a two dimensional space based on
-						certain information that is provided to us. This becomes
-						useful information as we delve further into the world of
-						physics when discussing forces, Newton’s 2nd Law,
-						different types of energy, momentum, etc. It cannot be
-						understated of how a solid grasp on 2D Kinematics can
-						further reinforce everything else we learn about
-						physics. This interactive web page will serve as an
-						overview and review of 2D Kinematics and will describe
-						the conclusions we can draw through completing problems
-						relating to it.
+						certain information that is provided to us in a problem.
+						This becomes useful information as we delve further into
+						the world of physics when discussing forces, Newton’s
+						2nd Law, different types of energy, momentum, etc. It
+						cannot be understated of how a solid grasp on 2D
+						Kinematics can further reinforce everything else we
+						learn about physics. This interactive web page will
+						serve as an overview and review of 2D Kinematics and
+						will describe the conclusions we can draw through
+						completing problems relating to it.
 					</p>
 					<h2>Vectors</h2>
 					<p>
@@ -228,26 +232,38 @@ export default function Home(): JSX.Element {
 					<p>
 						Given that we are working in two dimensions, it is also
 						imperative to understand how we can add and subtract
-						vectors. This is actually quite straightforward, but we
-						first have to break our vectors into “components.” Think
-						of trigonometry. If we have a vector essentially
-						pointing diagonal at, say 45°, then it will have both an
-						x and y component. Once we have these components, we can
-						simply add the x and y components separately through a
-						method known as the “tail to tip” method. If we were
-						adding vectors A and B, then we would put B’s tail on
-						A’s head and draw the resultant vector from A’s tail to
-						B’s head.
+						vectors. This is actually quite straightforward. Let's
+						say there's a vector pointing in the positive x
+						direction and a vector pointing in the positive y
+						direction, then we can simply add these two vectors
+						through a method known as the “tip to tail” method. If
+						we were adding vectors A and B, then we would put B’s
+						tail on A’s tip and draw the resultant vector from A’s
+						tail to B’s tip. When subtracting vectors, this is
+						equivalent to just adding a negative vector. To create a
+						negative vector, simply flip the direction of the vector
+						and then perform the same "tip to tail" method to add
+						the two vectors.
+						<br />
+						<br />
+						This knowledge also forms the basis of vector
+						components. If there is a vector pointing 45&deg; above
+						the x axis, then we can just say that this is also two
+						vectors that have been added together -- an x and a y
+						component. We will cover how to use trigonometry to
+						determine the components of a vector later, but this is
+						a crucial part of solving problems in Physics as objects
+						rarely move in perfectly horizontal or vertical paths.
 					</p>
 					<h2>Displacement, Velocity, and Acceleration</h2>
 					<h3>Displacement</h3>
 					<p>
 						Displacement, velocity, and acceleration are the key
 						elements we will manipulate when solving 2D Kinematics
-						problems. These are all vectors, and this makes sense.
-						How? Well, we already looked at displacement earlier
-						such as when we said “10 meters to the west.” This is
-						the displacement — simple as that.{" "}
+						problems. These are ALL vectors. How? Well, we already
+						looked at displacement earlier such as when we said “10
+						meters to the west.” This basic description contains
+						both a magnitude (10 m) and a direction (west).{" "}
 						<strong className="font-bold">
 							Displacement is the shortest distance from the
 							starting position to the final position.
@@ -255,25 +271,34 @@ export default function Home(): JSX.Element {
 					</p>
 					<h3>Velocity</h3>
 					<p>
-						How long did it take us to get there? This would
-						describe our velocity. Say we walked 10 meters to the
-						west in 10 seconds (with no twists or turns). If we
-						divide 10 meters by 10 seconds, we are traveling at -1
-						m/s. How can velocity be negative? This perplexed me at
-						first, but remember what we know is true about vectors.
-						In the context of the problem, it is crucial to
-						understand that we have traveled 10 meters to the left
-						(the negative direction). Try moving the sliders for
-						both the displacement and the time to see how they
-						interact.{" "}
+						How long did it take us to achieve that displacement?
+						This would describe our velocity. Say we walked 10
+						meters to the west in 10 seconds (with no twists or
+						turns). If we divide 10 meters by 10 seconds, we are
+						traveling at -1 m/s. How can velocity be negative? If
+						you are confused, this perplexed me at first as well,
+						but remember what we know is true about vectors. They
+						have both a magnitude and direction. In this case our
+						direction is to the left or in the negative direction,
+						and our magnitude is 10 m/s. Velocity is often confused
+						for speed, but speed is just the magnitude of velocity
+						and is a scalar value while velocity is a vector. In the
+						context of the problem, it is crucial to understand that
+						we have traveled 10 meters to the left (the negative
+						direction).{" "}
+						<strong className="text-blue-500">
+							Try moving the sliders to understand the
+							relationship between displacement and time and how
+							they relate to average velocity.{" "}
+						</strong>
 						<strong className="font-bold">
-							Note that if you travel further in a shorter amount
-							of time, the magnitude of your velocity is
-							increasing.
+							Note that if you travel further in the same amount
+							or a shorter amount of time, the magnitude of your
+							average velocity is increasing.
 						</strong>{" "}
-						This makes logical sense as we physically have to be
-						moving faster in order to cover the same distance in
-						less time.
+						This makes logical sense as we physically would have had
+						to move faster in order to cover the same distance in
+						equal or less time.
 					</p>
 					<div className="w-full grid grid-cols-8 gap-8">
 						<div className="col-span-1"></div>
@@ -332,14 +357,17 @@ export default function Home(): JSX.Element {
 						velocity was constantly increasing over that time. This
 						is acceleration — our change in velocity over the total
 						amount of time. In 2D Kinematics, we treat acceleration
-						as constant. That is, the rate that our velocity is
-						changing over a time interval will always be the same.
-						Try moving the sliders for the velocity and time to see
-						how they interact.{" "}
+						as constant. That is, the rate at which our velocity is
+						changing over a time interval will always be the same.{" "}
 						<strong>
-							Note that if your velocity changes more in a shorter
-							amount of time, your acceleration will increase!
+							Note that if our change in velocity (&#916;v) is
+							greater in the same amount or shorter amount of
+							time, our acceleration will increase!
 						</strong>{" "}
+						<strong className="text-blue-500">
+							Try moving the sliders for the velocity and time to
+							see how they interact with our average acceleration.{" "}
+						</strong>
 					</p>
 					<div className="w-full grid grid-cols-8 gap-8">
 						<div className="col-span-1"></div>
@@ -411,11 +439,14 @@ export default function Home(): JSX.Element {
 						Say we had some velocity (v) and some angle (&theta;)
 						counterclockwise above the x-axis. How would we break
 						this into its components? Again, it is important to
-						remember our trigonometric rules. We have a right
-						triangle, thus we can use the our sin, cos, and tan
-						properties. Given that v is our hypotenuse, we can then
-						apply these trigonometric ratios to derive the x and y
-						components of v.
+						remember our trigonometric rules and what we know is
+						true about vectors. We have a right triangle, thus we
+						can use the sin, cos, and tan properties. Given that v
+						is our hypotenuse of the triangle with the y component
+						vector as the opposite side and the x component vector
+						as the adjacent side, we can then apply these
+						trigonometric ratios to derive the x and y components of
+						v.
 					</p>
 					<div className="grid grid-cols-6 font-bold text-2xl gap-8 justify-items-center items-center">
 						<div className="col-span-1"></div>
@@ -428,11 +459,16 @@ export default function Home(): JSX.Element {
 						<div className="col-span-1"></div>
 					</div>
 					<p>
-						Edit the angle (&theta;) for a set velocity of 50 m/s.
+						<strong className="text-blue-500">
+							Try to edit the angle (&theta;) for a set velocity
+							of 50 m/s.{" "}
+						</strong>
 						Notice how these components change. Notice how when
-						&theta; is 0&deg; our v<sub>y</sub> becomes 0. This is
-						because we are moving horizontally! What do you think
-						happens when &theta; is 90&deg;?
+						&theta; is 0&deg; our v<sub>y</sub> becomes 0.{" "}
+						<strong>
+							This is because we are moving horizontally!
+						</strong>{" "}
+						What do you think happens when &theta; is 90&deg;?
 					</p>
 					<div className="w-full flex flex-col items-center gap-2 pb-8">
 						<strong className="font-bold">
@@ -459,22 +495,32 @@ export default function Home(): JSX.Element {
 						</div>
 						<div className="col-span-1"></div>
 					</div>
-					<h2>Translational vs. Rotational Motion</h2>
+					<h2>Projectile Motion</h2>
 					<p>
-						In two dimensional kinematics, there are two different
-						paradigms to be aware of; however, they are extremely
-						similar in equations and solving strategies.
+						Projectile motion is frequently discussed when talking
+						about 2D Kinematics as it is simply the motion of an
+						object that is launched into the air and is ONLY
+						influenced by gravity. Thus, the projectile is in free
+						fall. Think of a ball being thrown in the air or a
+						cannon ball shooting off from a hill. There is no
+						acceleration in the x direction if we ignore air
+						resistance. What does this mean? If we ignored air
+						resistance, what do you think would happen if we threw a
+						baseball exactly horizontal at the same time that we
+						dropped a baseball from our hand?{" "}
 					</p>
-					<h3>Translational Motion</h3>
 					<p>
-						Translational motion simply refers to movement of an
-						object where all parts are moving in the same direction.
-						The object is not rotating. This could be compared to a
-						person walking forward, a ball being thrown through the
-						air, or a cannonball being shot off a wall.{" "}
-						<strong className="font-bold">
-							Here are our given equations for translational
-							motion:
+						<strong>
+							They would hit the ground at the exact same time.
+						</strong>{" "}
+						Both objects are only under the influence of gravity in
+						the y direction.{" "}
+						<strong>
+							Our kinematic equations for projectile motion are
+							below, however, remember the key points about
+							vectors and 2 dimensions: each equation should be
+							broken into components (x is just used as an
+							example).
 						</strong>
 					</p>
 					<div className="flex flex-col gap-4 items-center font-bold text-2xl">
@@ -491,28 +537,65 @@ export default function Home(): JSX.Element {
 							<sup>2</sup> + 2a(x<sub>f</sub> - x<sub>0</sub>)
 						</div>
 					</div>
-					<h3>Rotational Motion</h3>
+					<h2>Circular Motion</h2>
+					<h3>Uniform Circular Motion</h3>
 					<p>
-						Rotational motion is motion where the object is spinning
-						about an axis. If we are moving around a circle, our
-						displacement no longer relates to the distance that we
-						traveled, but the difference in the angle of where we
-						ended relative to where we started. This is angular
-						displacement. This then applies to our velocity and
-						acceleration as we move around a circle. Again, this
-						makes sense. If we are constantly moving around a circle
-						faster and faster, then the amount the angle is changing
-						in the same amount of time is becoming larger and
-						larger. Additionally, although slightly confusing, the
-						velocity in rotational motion is tangent to the circular
-						path, while centripetal acceleration is always pointing
-						toward the center of the circle and keeping us locked
-						into that circular path. This can be confusing because
-						even if we are moving at a constant speed, we have
-						acceleration as the direction and thus components of the
-						centripetal acceleration vector are always changing.{" "}
+						Uniform Circular motion is motion where the object is
+						spinning about an axis at a constant speed.{" "}
 						<strong>
-							Here are our given equations for rotational motion.
+							If we are moving around a circle, our displacement
+							no longer relates to the distance that we traveled
+							such as in translational motion, but the difference
+							in the angle of where we ended relative to where we
+							started. This is angular displacement (measured in
+							radians).{" "}
+						</strong>{" "}
+						This then applies to our velocity and acceleration as we
+						move around a circle. Our average angular velocity can
+						be found similar to translational motion, but with our
+						new angular displacement instead. It is simply the
+						angular displacement over the change in time now.
+						Additionally, although slightly confusing, the velocity
+						in rotational motion is tangent to the circular path.
+						How do we stay in a circle then? We are able to stay on
+						a circular path due to Centripetal Acceleration.
+						Centripetal Acceleration roughly translates to "center
+						seeking," implying that our acceleration is always a
+						vector that points toward the center of the circle;
+						thus, if we have a velocity vector that is tangent to
+						the circle but a centripetal acceleration, it is clear
+						to see how we move in a circular path. However, this can
+						be confusing because even if we are moving at a constant
+						speed, we technically do have acceleration as the
+						direction and thus components of the centripetal
+						acceleration vector are always changing to point toward
+						the center of the circle.{" "}
+					</p>
+					<h3>Nonuniform Circular Motion</h3>
+					<p>
+						Nonuniform Circular Motion is simply circular motion
+						with a changing speed -- thus there is angular
+						acceleration. Again, our acceleration is now simply just
+						the change in angular velocity over the change in time.
+						However, if we ALWAYS have centripetal acceleration in
+						circular motion problems, then what is this new
+						acceleration?{" "}
+						<strong>
+							This acceleration is simply our tangential
+							acceleration, the vector is tangent to the curve.
+						</strong>{" "}
+						However, something interesting happens here. Recall what
+						we know is true about vectors -- they have components.
+						Therefore, because we now have two accelerations,
+						centripetal and tangential, our acceleration vector no
+						longer points directly toward the center of the circle
+						as it did in uniform circular motion. We must use
+						Pythagorean theorem to find our actual acceleration.
+					</p>
+					<p>
+						{" "}
+						<strong>
+							Here are our given equations for circular motion.
 						</strong>
 					</p>
 					<div className="flex flex-col gap-4 items-center font-bold text-2xl">
@@ -530,19 +613,6 @@ export default function Home(): JSX.Element {
 							&theta;<sub>0</sub>)
 						</div>
 					</div>
-					<h2>Projectile Motion</h2>
-					<p>
-						Projectile motion is frequently discussed when talking
-						about 2D Kinematics as it is simply the motion of an
-						object that is launched into the air and is ONLY
-						influenced by gravity. Therefore, there is no
-						acceleration in the x direction if we ignore air
-						resistance. What does this mean? If we ignored air
-						resistance, what do you think would happen if we threw a
-						baseball exactly horizontal at the same time that we
-						dropped a baseball from our hand?
-					</p>
-					<p>[ADD QUESTION ANSWERING HERE]</p>
 					<h2>Final Example Problem</h2>
 					<h3>Key Information To Remember</h3>
 					<ul>
@@ -583,8 +653,15 @@ export default function Home(): JSX.Element {
 						a pirate ship is 10 meters long who's center point is
 						100 meters from the wall, will you hit a part of the
 						ship? Reference the drawing below.
-						<br></br>
-						<br></br>
+						<div className="w-full flex justify-center items-center">
+							<Image
+								src={"/physics1-project-image1.png"}
+								alt="Problem drawn out"
+								width={500}
+								height={500}
+								className="rounded-2xl shadow-md"
+							></Image>
+						</div>
 						<strong>Click on the steps to see my work.</strong>
 					</p>
 					<div className="flex flex-col gap-16">
