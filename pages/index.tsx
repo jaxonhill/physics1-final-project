@@ -661,7 +661,7 @@ export default function Home(): JSX.Element {
 						<div className="w-full flex justify-center items-center">
 							<Image
 								src={"/physics1-project-image1.png"}
-								alt="Problem drawn out"
+								alt="Problem drawn out, if you are seeing this the image failed to load"
 								width={500}
 								height={500}
 								className="rounded-2xl shadow-md"
