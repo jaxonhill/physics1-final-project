@@ -23,7 +23,7 @@ const stepsToSolve: JSX.Element[] = [
 			We will need to solve for x<sub>f</sub> in this case to find how far
 			the cannon ball will travel. Remember what we stated about 2D
 			Kinematics: we must make our velocity our v<sub>0x</sub> velocity,
-			not v<sub>x</sub>.
+			not just v<sub>0</sub>.
 		</div>
 		<div className="flex justify-center items-center text-xl">
 			x<sub>f</sub> = x<sub>0</sub> + v<sub>0x</sub>t + (1/2)a<sub>x</sub>
@@ -71,11 +71,12 @@ const stepsToSolve: JSX.Element[] = [
 		<div>
 			It's important to remember what we stated earlier about breaking the
 			velocity vector into it's components. We need the v<sub>0y</sub>{" "}
-			component. We can retrive this through utilizing the trigonometric
-			ratios to find that our v<sub>0y</sub> is 20 * sin(30). We also know
-			that our y<sub>0</sub> is 100 meters in the air. Our acceleration in
-			the y direction is only created through gravitational force, so our
-			a<sub>y</sub> is just -g -- as we are accelerating downwards.
+			component. We can retrieve this through utilizing the trigonometric
+			ratios to find that our v<sub>0y</sub> is 20 * sin(30&deg;). We also
+			know that our y<sub>0</sub> is 100 meters in the air. Our
+			acceleration in the y direction is only created through
+			gravitational force, so our a<sub>y</sub> is just -g -- as we are
+			accelerating downwards.
 		</div>
 		<div className="flex justify-center items-center text-xl">
 			0 = 100 + 20*sin(30&deg;)t - (1/2)(9.8)t<sup>2</sup>
@@ -127,7 +128,8 @@ const stepsToSolve: JSX.Element[] = [
 		<div>
 			Will we hit the ship? Well, if the cannon ball will travel ~98 m and
 			the ship's middle point was 100 meters from the wall with a total
-			ship length of 10 meters; then our range must be: 95 m and 105 m.
+			ship length of 10 meters; then our range must be between 95 m and
+			105 m.
 		</div>
 		<div>
 			<strong>
