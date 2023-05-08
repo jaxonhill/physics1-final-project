@@ -3,6 +3,7 @@ import Link from "next/link";
 import { NextFont } from "next/dist/compiled/@next/font";
 import { useState } from "react";
 import Head from "next/head";
+import StepBlock from "@/components/StepBlock";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter: NextFont = Inter({ subsets: ["latin"] });
@@ -10,6 +11,135 @@ const inter: NextFont = Inter({ subsets: ["latin"] });
 function toRadians(angle: number): number {
 	return angle * (Math.PI / 180);
 }
+
+const stepsToSolve: JSX.Element[] = [
+	<div className="flex flex-col gap-4">
+		<div>
+			<strong>
+				1. Identify what we need to solve for using kinematic equations.
+			</strong>
+		</div>
+		<div>
+			We will need to solve for x<sub>f</sub> in this case to find how far
+			the cannon ball will travel. Remember what we stated about 2D
+			Kinematics: we must make our velocity our v<sub>0x</sub> velocity,
+			not v<sub>x</sub>.
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			x<sub>f</sub> = x<sub>0</sub> + v<sub>0x</sub>t + (1/2)a<sub>x</sub>
+			t<sup>2</sup>
+		</div>
+	</div>,
+	<div className="flex flex-col gap-4">
+		<div>
+			<strong>
+				2. Simplify the equation by removing unncessary values.
+			</strong>
+		</div>
+		<div>
+			We can now just cancel some of these terms out, as they are zero.
+			Remember,{" "}
+			<strong>
+				our acceleration in the x direction will be ZERO as only gravity
+				is acting on this object.
+			</strong>{" "}
+			Also, our x<sub>0</sub> is just 0 as that is where the cannon ball
+			is starting from. Now we should have this equation:
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			x<sub>f</sub> = v<sub>0x</sub>t
+		</div>
+	</div>,
+	<div className="flex flex-col gap-4">
+		<div>
+			<strong>
+				3. Find another kinematic equation to solve for t using the
+				variables we already know from the problem.
+			</strong>
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			y<sub>f</sub> = y<sub>0</sub> + v<sub>0y</sub>t + (1/2)a<sub>y</sub>
+			t<sup>2</sup>
+		</div>
+	</div>,
+	<div className="flex flex-col gap-4">
+		<div>
+			<strong>
+				4. Simplify the equation, and plug in tangible numbers.
+			</strong>
+		</div>
+		<div>
+			It's important to remember what we stated earlier about breaking the
+			velocity vector into it's components. We need the v<sub>0y</sub>{" "}
+			component. We can retrive this through utilizing the trigonometric
+			ratios to find that our v<sub>0y</sub> is 20 * sin(30). We also know
+			that our y<sub>0</sub> is 100 meters in the air. Our acceleration in
+			the y direction is only created through gravitational force, so our
+			a<sub>y</sub> is just -g -- as we are accelerating downwards.
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			0 = 100 + 20*sin(30&deg;)t - (1/2)(9.8)t<sup>2</sup>
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			-4.9t<sup>2</sup> + 10t + 100 = 0
+		</div>
+	</div>,
+	<div className="flex flex-col gap-4">
+		<div>
+			<strong>5. Use the quadratic equation to solve for t.</strong>
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			(-10 +/- sqrt((-10)<sup>2</sup> - 4(-4.9)(100))) / (2(-4.9))
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			(-10 +/- 45.39) / -9.8
+		</div>
+		<div>
+			We should choose the - sign, as the + sign will get us an overall
+			negative value and it is impossible to have negative time.
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			-55.39 / -9.8 = 5.65
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			t = 5.65 s
+		</div>
+	</div>,
+	<div className="flex flex-col gap-4">
+		<div>
+			<strong>
+				6. Plug in t and v<sub>0x</sub> to find x<sub>f</sub>.
+			</strong>
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			x<sub>f</sub> = (20)*cos(30&deg;)*(5.65)
+		</div>
+		<div className="flex justify-center items-center text-xl">
+			x<sub>f</sub> = 97.86 m
+		</div>
+	</div>,
+	<div className="flex flex-col gap-4">
+		<div>
+			<strong>
+				7. Reason the answer to the actual question using logic.
+			</strong>
+		</div>
+		<div>
+			Will we hit the ship? Well, if the cannon ball will travel ~98 m and
+			the ship's middle point was 100 meters from the wall with a total
+			ship length of 10 meters; then our range must be: 95 m and 105 m.
+		</div>
+		<div>
+			<strong>
+				Since our x<sub>f</sub> was 98 m:{" "}
+				<span className="text-emerald-500">
+					Yes, we will hit the ship towards its frontside. We will
+					save the city!
+				</span>
+			</strong>
+		</div>
+	</div>,
+];
 
 export default function Home(): JSX.Element {
 	const [displacement, setDisplacement] = useState(-10);
@@ -441,7 +571,34 @@ export default function Home(): JSX.Element {
 						</li>
 					</ul>
 					<h3>The Problem</h3>
-					<p></p>
+					<p>
+						Your city is under siege by a fleet of pirate ships!
+						Your defenses are running low on cannonballs, so you
+						need to ensure that every shot is a guaranteed hit. Your
+						cannons shoot off from a wall that is 100 meters high.
+						The cannons shoot the cannon balls at a velocity of 20
+						m/s at 30&deg; counter clockwise from the horizontal. If
+						a pirate ship is 10 meters long who's center point is
+						100 meters from the wall, will you hit a part of the
+						ship? Reference the drawing below.
+						<br></br>
+						<br></br>
+						<strong>Click on the steps to see my work.</strong>
+					</p>
+					<div className="flex flex-col gap-16">
+						{stepsToSolve.map(
+							(step: JSX.Element, index: number) => {
+								return (
+									<StepBlock
+										key={index}
+										stepNumber={index + 1}
+									>
+										{step}
+									</StepBlock>
+								);
+							}
+						)}
+					</div>
 					<h2>Conclusion</h2>
 					<p>
 						In this interactive paper/article I discussed what
