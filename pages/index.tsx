@@ -133,7 +133,7 @@ const stepsToSolve: JSX.Element[] = [
 			Will we hit the ship? Well, if the cannon ball will travel ~98 m and
 			the ship's middle point was 100 meters from the wall with a total
 			ship length of 10 meters; then our range must be between 95 m and
-			105 m.
+			105 m to successfully hit the ship.
 		</div>
 		<div>
 			<strong>
@@ -185,7 +185,7 @@ export default function Home(): JSX.Element {
 					<p className="text-slate-800">
 						<em>
 							An overview of 2D Kinematics at large. This includes
-							introducing vectors, displacement, velocity,
+							introducing vectors, displacement, velocity, and
 							acceleration to then explain how to apply these
 							vectors in two dimensional space. I wrote this paper
 							almost as if it were an introduction / guide, as it
@@ -545,31 +545,35 @@ export default function Home(): JSX.Element {
 						<strong>
 							If we are moving around a circle, our displacement
 							no longer relates to the distance that we traveled
-							such as in translational motion, but the difference
-							in the angle of where we ended relative to where we
-							started. This is angular displacement (measured in
-							radians).{" "}
+							such as in linear or projectile motion, but the
+							difference in the angle of where we ended relative
+							to where we started. This is angular displacement
+							(measured in radians).{" "}
 						</strong>{" "}
 						This then applies to our velocity and acceleration as we
 						move around a circle. Our average angular velocity can
-						be found similar to translational motion, but with our
-						new angular displacement instead. It is simply the
-						angular displacement over the change in time now.
-						Additionally, although slightly confusing, the velocity
-						in rotational motion is tangent to the circular path.
-						How do we stay in a circle then? We are able to stay on
-						a circular path due to Centripetal Acceleration.
-						Centripetal Acceleration roughly translates to "center
-						seeking," implying that our acceleration is always a
-						vector that points toward the center of the circle;
-						thus, if we have a velocity vector that is tangent to
-						the circle but a centripetal acceleration, it is clear
-						to see how we move in a circular path. However, this can
-						be confusing because even if we are moving at a constant
-						speed, we technically do have acceleration as the
-						direction and thus components of the centripetal
-						acceleration vector are always changing to point toward
-						the center of the circle.{" "}
+						be found similar to the methods before, but with our new
+						angular displacement instead. It is simply the angular
+						displacement over the change in time now. Additionally,
+						although slightly confusing, the velocity in rotational
+						motion is tangent to the circular path. How do we stay
+						in a circle then? We are able to stay on a circular path
+						due to Centripetal Acceleration. Centripetal
+						Acceleration roughly translates to "center seeking,"
+						implying that our acceleration is always a vector that
+						points toward the center of the circle; thus, if we have
+						a velocity vector that is tangent to the circle but a
+						centripetal acceleration, it is clear to see how we move
+						in a circular path because our velocity vector is
+						essentially constantly changing direction. However, this
+						can be confusing because even if we are moving at a
+						constant <em>speed</em>, we technically do have
+						acceleration because the direction of the centripetal
+						acceleration vector is always changing to point toward
+						the center of the circle. We may even technically have
+						"negative acceleration," but in the case of uniform
+						circular motion, this does not necessarily mean we are
+						slowing down.
 					</p>
 					<h3>Nonuniform Circular Motion</h3>
 					<p>
@@ -632,9 +636,10 @@ export default function Home(): JSX.Element {
 						</li>
 						<li>
 							Remember, all the information might not be
-							necessarily given to us, as in the example above. We
-							have to remember that our object is only subject to
-							gravity for acceleration (denoted by g).
+							necessarily given to us. We will sometimes have to
+							remember pieces of information, such as the fact
+							that our object is only subject to gravity in terms
+							of acceleration (denoted by g).
 						</li>
 						<li>
 							Based on the information given to us in the problem,
@@ -643,7 +648,7 @@ export default function Home(): JSX.Element {
 						</li>
 					</ul>
 					<h3>The Problem</h3>
-					<p>
+					<div className="pb-8">
 						Your city is under siege by a fleet of pirate ships!
 						Your defenses are running low on cannonballs, so you
 						need to ensure that every shot is a guaranteed hit. Your
@@ -663,7 +668,7 @@ export default function Home(): JSX.Element {
 							></Image>
 						</div>
 						<strong>Click on the steps to see my work.</strong>
-					</p>
+					</div>
 					<div className="flex flex-col gap-16">
 						{stepsToSolve.map(
 							(step: JSX.Element, index: number) => {
@@ -687,12 +692,13 @@ export default function Home(): JSX.Element {
 						Therefore, when solving 2D Kinematics problems, we must
 						break every vector into its components when solving for
 						a certain parameter. I also described the difference
-						between translational and rotational motion and some
-						confusing aspects of mainly rotational motion such as
-						centripetal acceleration. Finally, I explained the
-						concept of projectile motion and solved an original
-						example problem where you could check your answer
-						through an interactive slider.
+						between projectile and circular motion and some
+						confusing aspects of mainly circular motion such as
+						centripetal acceleration. Finally, I further explained
+						the concept of projectile motion through solving an
+						original example problem where you could check your
+						answer and work by clicking through the steps of the
+						problem.
 					</p>
 					<p>
 						I hope you enjoyed clicking through the different
@@ -716,8 +722,8 @@ export default function Home(): JSX.Element {
 						>
 							Open Source Code Repository
 						</Link>{" "}
-						for the project I made with TypeScript, Tailwind, and
-						Next.js.
+						for the project. I made this with TypeScript, Tailwind,
+						and Next.js (web programming libraries).
 					</p>
 				</main>
 			</article>
