@@ -182,7 +182,7 @@ export default function Home(): JSX.Element {
 					<p className="text-slate-200 text-xl">By Jaxon Hill</p>
 				</div>
 				<div className="mb-12">
-					<p className="text-slate-800">
+					<p className="text-slate-800 pb-4">
 						<em>
 							An overview of 2D Kinematics at large. This includes
 							introducing vectors, displacement, velocity, and
@@ -192,6 +192,14 @@ export default function Home(): JSX.Element {
 							is something I wish I could have utilized to help
 							grasp these topics when I first learned them.
 						</em>
+					</p>
+					<p className="text-slate-800">
+						<strong>
+							NOTE: Ensure you are viewing this on a computer or
+							laptop for the best experience, as the formatting is
+							not mobile friendly for the interactive elements I
+							programmed.
+						</strong>
 					</p>
 				</div>
 				<main className="prose lg:prose-lg prose-h2:mb-6 prose-h3:mb-4">
