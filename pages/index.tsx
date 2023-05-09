@@ -466,7 +466,7 @@ export default function Home(): JSX.Element {
 						Notice how these components change. Notice how when
 						&theta; is 0&deg; our v<sub>y</sub> becomes 0.{" "}
 						<strong>
-							This is because we are moving horizontally!
+							This is because we are only moving horizontally!
 						</strong>{" "}
 						What do you think happens when &theta; is 90&deg;?
 					</p>
